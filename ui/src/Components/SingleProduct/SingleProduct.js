@@ -1,7 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './sp.css'
+import { useLocation } from 'react-router'
+import axios from 'axios'
 
 export default function SingleProduct() {
+    const location = useLocation()
+    const productId = location.pathname.split("/")[2]
+
+    //fetching a single prod
+    const [prod, setProd] = useState("")
+    useEffect(() => {
+        const findingProdById = async () => {
+            try {
+                const response = await axios.get('/products/' + productId)
+                setProd(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        findingProdById();
+
+    },[productId]);
+
+    //for quantity
     const [qt, setQt] = useState(1)
 
     const incQt = () => {
@@ -19,10 +40,10 @@ export default function SingleProduct() {
                 </div>
                 <div className="other">
                     <p className="xtitle">
-                        Acer Nitro 5 2021 (AN515-45) Gaming Laptop / Ryzen 5 5600H / RTX 3060 / 8GB RAM / 512GB SSD / 15.6" FHD 144Hz Display
+                      {prod.name}
                     </p>
                     <span className="price">
-                        $ 1000
+                     {prod.price}
                     </span>
                     <button className='cartBtn'>
                         <span>ADD TO CART</span>
@@ -43,53 +64,44 @@ export default function SingleProduct() {
                         <div className="firstDetails">
                             <span className="dtitle">CPU</span>
                             <p className="desc">
-                                AMD Ryzen 5 5600H CPU (Cezanne)
-                                - 3.3GHz Base Clock, 4.2GHz Max Boost Clock
-                                - 16MB L3 Cache, 6 Cores, 12 Threads
+                                {prod.cpu}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">Operating System</span>
                             <p className="desc">
-                                Windows 11
+                                {prod.operatingSystem}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">display</span>
                             <p className="desc">
-                                15.6-inch (1920 x 1080 pixels) IPS panel
-                                Full-HD resolution, 144Hz refresh rate
-                                Acer ComfyView technology, Slim Bezel
+                                {prod.display}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">RAM</span>
                             <p className="desc">
-                                8GB DDR4 RAM (@3200MHz)
-                                Up to 32GB RAM supported
+                              {prod.ram}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">Storage</span>
                             <p className="desc">
 
-                                512GB M.2 NVMe PCIe SSD
+                                {prod.storage}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">Graphics</span>
                             <p className="desc">
-                                NVIDIA GeForce RTX 3060 Discrete Graphics
-                                - 6GB GDDR6 Video Memory (VRAM)
-                                - Up to 85W maximum graphics power
-                                - Up to 1425MHz GPU boost clock
+                               {prod.graphics}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">Battery</span>
                             <p className="desc">
-                                57.5Wh 4-cell Li-Ion battery
-                                180W AC power adapter
+                                {prod.battery}
                             </p>
                         </div>
 

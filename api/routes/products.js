@@ -32,6 +32,15 @@ router.get('/getprods/:id',async(req,res)=>{
     }
 })
 
+//get prodById
+router.get('/:id',async(req,res)=>{
+    try {
+        const gotProducts=await Product.findById(req.params.id)
+        res.status(200).send(gotProducts)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
 //edit a product
 router.put('/updateprod/:id',async(req,res)=>{
     try {
