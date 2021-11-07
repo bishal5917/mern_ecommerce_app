@@ -1,0 +1,39 @@
+.Nav{
+    display: flex;
+    background-color: aliceblue;
+    padding:10px 10px;
+    justify-content: space-around;
+
+}
+.leftPart{
+    font-size: 3rem;
+    color:tomato;
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+.rightPart{
+display: flex;
+align-items: center;
+}
+.Srch{
+    width:60vw;
+    height:70%;
+    padding:10px 10px;
+    border:1px solid rgb(172, 167, 167);
+    outline: none;
+    font-size: 1.3rem;
+    background-color: none;
+    border-radius: 5px;
+}
+.cats{
+    width:15vw;
+    height:70%;
+    padding:10px 10px;
+    border:1px solid rgb(172, 167, 167);
+    outline: none;
+    font-size: 0.8rem;
+    background-color: none;
+    border-radius: 5px; 
+    margin-right:0.1rem;
+}

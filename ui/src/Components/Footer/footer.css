@@ -1,0 +1,12 @@
+.foot{
+    display: flex;
+    font-size: medium;
+    padding:10px;
+    color: antiquewhite;
+    /* text-align: center; */
+    font-family: Arial, Helvetica, sans-serif;
+     background-color: rgb(8, 32, 63);
+     height: 70px;
+     align-items: center;
+     justify-content: center;
+  }

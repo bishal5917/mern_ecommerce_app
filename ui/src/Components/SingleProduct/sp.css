@@ -1,0 +1,72 @@
+.spCont {
+  display: flex;
+  padding: 20px 20px;
+}
+.imageContainer {
+  flex: 1;
+}
+.other {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.imgg {
+  height: 70%;
+  width: 100%;
+  object-fit: cover;
+}
+.other > * {
+  margin: 1.3rem;
+}
+.xtitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.quantity {
+  display: flex;
+  align-items: center;
+}
+.quantity > div {
+  margin-left: 1rem;
+}
+.qs > span {
+  font-size: 1.5rem;
+  margin: 0.3rem;
+  cursor: pointer;
+}
+.qs {
+  border: 1px solid rgb(88, 76, 76);
+}
+.details {
+  display: flex;
+  flex-direction: column;
+}
+.firstDetails {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  border-bottom: 1px solid rgb(245, 238, 238);
+}
+.dtitle {
+  flex: 1;
+  font-weight: 500;
+}
+.desc {
+  flex: 1;
+  font-weight: 300;
+  font-size: 0.9rem;
+
+}
+.blo {
+  border-left: 0;
+}
+.bro {
+  border-right: 0;
+}
+.bto {
+  border-top: 0;
+}
+.bbo {
+  border-bottom: 0;
+}

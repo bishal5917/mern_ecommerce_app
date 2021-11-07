@@ -1,0 +1,18 @@
+.sliderImage {
+  height: 50vh;
+  width: 100%;
+  object-fit: cover;
+}
+.sliderImages {
+  position: relative;
+
+}
+.left {
+  position: absolute;
+  top: 10rem;
+}
+.right {
+  position: absolute;
+  top: 10rem;
+  left:95vw;
+}

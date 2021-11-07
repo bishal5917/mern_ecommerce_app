@@ -1,0 +1,17 @@
+.shoppingCartContainer{
+    padding:2rem;
+}
+.xtopic{
+/* font-weight: 200; */
+font-size: 1.5rem;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.carts{
+    display: flex;
+    flex-direction: column;
+}
+hr{
+    margin: 0.8rem;
+}
