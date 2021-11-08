@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import './sp.css'
 import { useLocation } from 'react-router'
 import axios from 'axios'
+import { addProduct } from '../../Redux/ReduxCart'
+import  {useDispatch}  from 'react-redux'
 
 export default function SingleProduct() {
     const location = useLocation()
     const productId = location.pathname.split("/")[2]
 
     //fetching a single prod
-    const [prod, setProd] = useState("")
+    const [product, setProd] = useState("")
     useEffect(() => {
         const findingProdById = async () => {
             try {
@@ -20,17 +22,23 @@ export default function SingleProduct() {
         }
         findingProdById();
 
-    },[productId]);
+    }, [productId]);
 
     //for quantity
-    const [qt, setQt] = useState(1)
+    const [quantity, setquantity] = useState(1)
 
-    const incQt = () => {
-        setQt(qt + 1)
+    const incquantity = () => {
+        setquantity(quantity + 1)
     }
 
-    const decQt = () => {
-        qt === 1 ? setQt(qt) : setQt(qt - 1)
+    const decquantity = () => {
+        quantity === 1 ? setquantity(quantity) : setquantity(quantity - 1)
+    }
+
+    //add to cart 
+    const dispatch = useDispatch();
+    const addToCartHandle = () => {
+        dispatch(addProduct({...product,quantity}));
     }
     return (
         <>
@@ -40,21 +48,21 @@ export default function SingleProduct() {
                 </div>
                 <div className="other">
                     <p className="xtitle">
-                      {prod.name}
+                        {product.name}
                     </p>
                     <span className="price">
-                     {prod.price}
+                        {product.price}
                     </span>
-                    <button className='cartBtn'>
-                        <span>ADD TO CART</span>
+                    <button onClick={addToCartHandle} className='cartBtn'>
+                        <span >ADD TO CART</span>
                     </button>
                     <hr />
                     <div className="quantity">
                         <span className="text">Quantity</span>
                         <div className="qs">
-                            <span onClick={decQt} className="manipulators">-</span>
-                            <span className="manipulators">{qt}</span>
-                            <span onClick={incQt} className="manipulators">+</span>
+                            <span onClick={decquantity} className="manipulators">-</span>
+                            <span className="manipulators">{quantity}</span>
+                            <span onClick={incquantity} className="manipulators">+</span>
                         </div>
                     </div>
                     <hr />
@@ -64,44 +72,44 @@ export default function SingleProduct() {
                         <div className="firstDetails">
                             <span className="dtitle">CPU</span>
                             <p className="desc">
-                                {prod.cpu}
+                                {product.cpu}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">Operating System</span>
                             <p className="desc">
-                                {prod.operatingSystem}
+                                {product.operatingSystem}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">display</span>
                             <p className="desc">
-                                {prod.display}
+                                {product.display}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">RAM</span>
                             <p className="desc">
-                              {prod.ram}
+                                {product.ram}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">Storage</span>
                             <p className="desc">
 
-                                {prod.storage}
+                                {product.storage}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">Graphics</span>
                             <p className="desc">
-                               {prod.graphics}
+                                {product.graphics}
                             </p>
                         </div>
                         <div className="firstDetails">
                             <span className="dtitle">Battery</span>
                             <p className="desc">
-                                {prod.battery}
+                                {product.battery}
                             </p>
                         </div>
 

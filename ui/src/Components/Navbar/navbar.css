@@ -1,39 +1,49 @@
-.Nav{
-    display: flex;
-    background-color: aliceblue;
-    padding:10px 10px;
-    justify-content: space-around;
-
+.Nav {
+  display: flex;
+  background-color: aliceblue;
+  padding: 10px 10px;
+  justify-content: space-around;
 }
-.leftPart{
-    font-size: 3rem;
-    color:tomato;
-    display: flex;
-    align-items: center;
-    margin-left: 0.5rem;
+.leftPart {
+  font-size: 3rem;
+  color: tomato;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
 }
-.rightPart{
-display: flex;
-align-items: center;
+.rightPart {
+  display: flex;
+  align-items: center;
 }
-.Srch{
-    width:60vw;
-    height:70%;
-    padding:10px 10px;
-    border:1px solid rgb(172, 167, 167);
-    outline: none;
-    font-size: 1.3rem;
-    background-color: none;
-    border-radius: 5px;
+.Srch {
+  width: 60vw;
+  height: 70%;
+  padding: 10px 10px;
+  border: 1px solid rgb(172, 167, 167);
+  outline: none;
+  font-size: 1.3rem;
+  background-color: none;
+  border-radius: 5px;
 }
-.cats{
-    width:15vw;
-    height:70%;
-    padding:10px 10px;
-    border:1px solid rgb(172, 167, 167);
-    outline: none;
-    font-size: 0.8rem;
-    background-color: none;
-    border-radius: 5px; 
-    margin-right:0.1rem;
+.cats {
+  width: 15vw;
+  height: 70%;
+  padding: 10px 10px;
+  border: 1px solid rgb(172, 167, 167);
+  outline: none;
+  font-size: 0.8rem;
+  background-color: none;
+  border-radius: 5px;
+  margin-right: 0.1rem;
+}
+.cartContainer {
+  position: relative;
+}
+.numsCont {
+  position: absolute;
+  right:0.01px;
+  background-color: rgb(165, 21, 8);
+  border-radius: 100%;
+  padding:3px 3px;
+  font-size: 0.9rem;
 }

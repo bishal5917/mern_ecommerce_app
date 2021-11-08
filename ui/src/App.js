@@ -8,6 +8,7 @@ import Signup from './Components/Sign/Signup'
 import Login from './Components/Sign/Login'
 import SellerSign from './Components/SellerSign/SellerSign'
 import SellerLog from './Components/SellerSign/SellerLog'
+// import { useSelector } from 'react-redux'
 
 import {
   BrowserRouter as Router,
@@ -17,6 +18,9 @@ import {
 import './App.css';
 
 function App() {
+  //taking a user
+  // const user=useSelector(state=>state.user.curruser)
+
   return (
     <>
       <Router>
