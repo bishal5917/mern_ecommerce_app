@@ -8,7 +8,9 @@ import Signup from './Components/Sign/Signup'
 import Login from './Components/Sign/Login'
 import SellerSign from './Components/SellerSign/SellerSign'
 import SellerLog from './Components/SellerSign/SellerLog'
-// import { useSelector } from 'react-redux'
+import UserAc from './Components/UserAc/UserAc'
+import Orders from './Components/Orders/Orders'
+import { useSelector } from 'react-redux'
 
 import {
   BrowserRouter as Router,
@@ -18,8 +20,8 @@ import {
 import './App.css';
 
 function App() {
-  //taking a user
-  // const user=useSelector(state=>state.user.curruser)
+  // taking a user
+  const user=useSelector(state=>state.user.curruser)
 
   return (
     <>
@@ -47,6 +49,12 @@ function App() {
           </Route>
           <Route exact path="/sellerlogin">
             <SellerLog />
+          </Route>
+          <Route exact path={user && `/user/${user._id}`}>
+            <UserAc />
+          </Route>
+          <Route exact path={user && `/orders${user._id}`}>
+            <Orders />
           </Route>
         </Switch>
         <Footer/>

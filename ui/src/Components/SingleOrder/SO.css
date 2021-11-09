@@ -1,0 +1,55 @@
+.xtopics{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(231, 215, 215);
+    border-top: 1px solid rgb(231, 215, 215);
+    padding: 0.5rem 0.5rem;
+}
+.cartItemCont{
+    display: flex;
+    flex-direction: column;
+    margin:1.3rem;
+}
+.Placed{
+    opacity: 70%;
+    font-weight: 200;
+}
+.orderId{
+    color: rgb(11, 126, 49);
+    margin-left: 0.5rem;
+}
+.topics>*{
+    padding:0.5rem;
+}
+.item{
+flex:4;
+display: flex;
+}
+.priceItem{
+flex:1;
+}
+.qty{
+    flex:1;
+}
+.total{
+    flex:1;
+}
+.item>img{
+    width: 10vw;
+    height: 20vh;
+}
+.item>*{
+    margin:0.3rem;
+}
+.cartItemCont>button{
+    width: 10vw;
+    padding: 0.3rem;
+    border:1px solid rgb(182, 170, 170) ;
+    background-color: rgb(20, 17, 22);
+    margin: 0.8rem;
+    cursor: pointer;
+
+}
+.item>span{
+    font-weight: 300;
+}

@@ -1,0 +1,54 @@
+.MainProfileEditContainer {
+    padding: 5rem;
+    padding-left: 5rem;
+    padding-top: 3rem;
+    border: 1px solid rgb(80, 73, 73);
+    margin: auto;
+  display: flex;
+  flex-direction: column;
+    width: 80vw;
+    margin-top: 5vh;
+  }
+  .firstRow{
+    display: flex;
+    justify-content: space-between;
+  }
+  .secRow{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .secondpartedit{
+      display: flex;
+      flex-direction: column;
+  }
+  .secondpartedit>*{
+    margin-top:0.9rem;
+
+}
+.secondpartedit>input{
+    width:20vw;
+    height: 5vh;
+    border:1px solid rgb(214, 205, 205);
+    background-color: none;
+    outline: none;
+    padding: 0.2rem 0.2rem;
+    font-size: 1.1rem;
+}
+.buttonCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonCont>button{
+    width:20vw;
+    height: 5vh;
+    margin-top:3rem;
+    background-color: teal;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.buttonCont>button:hover{
+opacity: 80%;
+cursor: pointer;
+}

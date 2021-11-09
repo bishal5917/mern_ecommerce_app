@@ -15,6 +15,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    phone: {
+        type: Number,
+        default:0
+    },
+    shipAdd: {
+        type: String,
+        default:"Gairapatan Gandaki Province - Pokhara - Chipledhunga Area"
+    },
 }, { timestamps: true }  //timestamps will  be given on creation and updation automatically
 );
 
