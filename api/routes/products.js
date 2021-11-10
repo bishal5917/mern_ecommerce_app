@@ -14,9 +14,16 @@ router.post('/create',async(req,res)=>{
 
 //get all products in a database
 router.get('/getallprods',async(req,res)=>{
+    var categoryFound=req.query.category
     try {
-        const gotProducts=await Product.find()
-        res.status(200).send(gotProducts)
+        let gotProducts;
+        if(categoryFound){
+            gotProducts=await Product.find({category:categoryFound})
+        }
+        else{
+            gotProducts=await Product.find()
+        }
+        res.status(200).json(gotProducts)
     } catch (error) {
         res.status(500).json(error)
     }

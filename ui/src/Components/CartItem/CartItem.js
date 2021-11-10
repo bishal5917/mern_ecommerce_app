@@ -1,7 +1,11 @@
 import React from 'react'
 import './cartItem.css'
 
-export default function CartItem({cartProduct}) {
+export default function CartItem({ cartProduct }) {
+    //removing cart
+    const removeCartHandle = () => {
+        cartProduct.filter(item => item.name !== cartProduct.name)
+    }
     return (
         <>
             <div className="cartItemCont">
@@ -18,9 +22,9 @@ export default function CartItem({cartProduct}) {
                     </div>
                     <span className="priceItem">{cartProduct.price}</span>
                     <span className="qty">{cartProduct.quantity}</span>
-                    <span className="total">{cartProduct.quantity*cartProduct.price}</span>
+                    <span className="total">{cartProduct.quantity * cartProduct.price}</span>
                 </div>
-                <button>Remove Item</button>
+                <button onClick={removeCartHandle}>Remove Item</button>
             </div>
         </>
     )

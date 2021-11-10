@@ -14,7 +14,6 @@ export default function Cart() {
                     {cart.products.map((p) => (
                         <CartItem cartProduct={p}/>
                     ))}
-
                 </div>
             </div>
         </>

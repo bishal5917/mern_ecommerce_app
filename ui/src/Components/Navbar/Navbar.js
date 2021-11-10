@@ -17,17 +17,7 @@ export default function Navbar() {
                     </div>
                 </Link>
                 <div className="rightPart">
-                    <div className="selectCat">
-                        <select name="cats" className='cats'>
-                            <option value="">All categories</option>
-                            <option value="dog">LAPTOPS</option>
-                            <option value="cat">GAMING LAPTOPS</option>
-                            <option value="hamster">MONITORS</option>
-                            <option value="parrot">STORAGE</option>
-                            <option value="spider">CPU</option>
-                            <option value="goldfish">GRAPHIC CARDS</option>
-                        </select>
-                    </div>
+            
                     <input className="Srch" placeholder="Search For Product" type="search" name="" id="" />
                     <div className="cartContainer">
                     <Link className="link" to="/cart">
