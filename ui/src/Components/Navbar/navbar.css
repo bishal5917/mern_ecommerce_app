@@ -15,6 +15,12 @@
   display: flex;
   align-items: center;
 }
+.btn{
+  border: none;
+  outline: none;
+  padding:2px 2px;
+  font-size: 800;
+}
 .Srch {
   width: 60vw;
   height: 70%;

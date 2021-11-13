@@ -1,6 +1,5 @@
 import Home from './Components/Home/Home'
 import Topbar from './Components/Topbar/Topbar'
-import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
 import SingleProduct from './Components/SingleProduct/SingleProduct'
 import Cart from './Components/Cart/Cart'
@@ -27,7 +26,6 @@ function App() {
     <>
       <Router>
         <Topbar />
-        <Navbar />
         <Switch>
           <Route exact path="/">
             <Home />
