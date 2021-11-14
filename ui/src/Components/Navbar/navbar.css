@@ -3,6 +3,7 @@
   background-color: aliceblue;
   padding: 10px 10px;
   justify-content: space-around;
+  align-items: center;
 }
 .leftPart {
   font-size: 3rem;
@@ -21,15 +22,25 @@
   padding:2px 2px;
   font-size: 800;
 }
+.iconSrch{
+  background-color: rgb(12, 56, 77);
+  cursor: pointer;
+}
+.searchContainer{
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
 .Srch {
   width: 60vw;
   height: 70%;
   padding: 10px 10px;
-  border: 1px solid rgb(172, 167, 167);
   outline: none;
+  border: none;
   font-size: 1.3rem;
   background-color: none;
-  border-radius: 5px;
+
 }
 
 .cartContainer {
