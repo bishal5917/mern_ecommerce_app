@@ -5,9 +5,10 @@ import { useDispatch } from 'react-redux'
 
 export default function CartItem({ cartProduct }) {
     const dispatch=useDispatch()
+    const id=cartProduct._id
     //removing cart
     const removeCartHandle = () => {
-        dispatch(removeCart,({cartProduct}));
+        dispatch(removeCart,({id}));
     }
     return (
         <>

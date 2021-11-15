@@ -4,13 +4,24 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
+import Search from '../Search/Search'
+import axios from 'axios'
 
 export default function Navbar() {
 
     const quantity = useSelector(state => state.cart.quantity)
 
     const [search, setSearch] = useState("")
+    const [searchstart, setSearchstart] = useState(false)
+    const [data,setData]=useState([])
 
+   //searching 
+   const searchingItems=async()=>{
+    setSearchstart(true)
+    const response=await axios.get(`/products/search?name=${search}`) 
+    setData(response.data)
+}
+  
     return (
         <>
             <div className="Nav">
@@ -21,9 +32,11 @@ export default function Navbar() {
                 </Link>
                 <div className="rightPart">
                     <div className="searchContainer">
-                        <input onChange={e => setSearch(e.target.value)}
+                        <input onKeyPress={(e) => e.key === 'Enter' && searchingItems()}
+                        onChange={e => setSearch(e.target.value)}
                             className="Srch" placeholder="Search For Product" type="search" name="" id="" />
-                        <SearchIcon style={{ "fontSize": "40" }} className='iconSrch' />
+                        <SearchIcon onClick={searchingItems}
+                        style={{ "fontSize": "40" }} className='iconSrch' />
                     </div>
                 </div>
                 <div className="cartContainer">
@@ -33,6 +46,7 @@ export default function Navbar() {
                         <span className="numsCont">{quantity}</span>
                     </div>
             </div>
+            {searchstart && <Search search={search} responses={data} />}
         </>
     )
 }
