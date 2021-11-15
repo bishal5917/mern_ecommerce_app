@@ -15,3 +15,15 @@ justify-content: center;
 hr{
     margin: 0.8rem;
 }
+.PlaceOrderbutton{
+    background-color: none;
+    border: 1px solid purple;
+    width: fit-content;
+    padding: 0.3rem 0.3rem;
+    border-radius: 10px;
+    margin: auto;
+    cursor: pointer;
+}
+.PlaceOrderbutton:hover{
+    opacity: 70%;
+}

@@ -3,7 +3,6 @@ import Slider from '../Slider/Slider'
 import Featured from '../Featured/Featured'
 import ListIcon from '@mui/icons-material/List';
 import './home.css'
-import Navbar from '../Navbar/Navbar';
 
 export default function Home() {
   const [category, setCategory] = useState("")
@@ -12,7 +11,6 @@ export default function Home() {
   }
   return (
     <>
-      <Navbar />
       <div className="selectCat">
         <ListIcon style={{ "fontSize": "30" }} />
         <select onChange={handleCatsChange} name="cats" className='catsx'>

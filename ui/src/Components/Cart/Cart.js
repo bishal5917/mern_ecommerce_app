@@ -15,6 +15,7 @@ export default function Cart() {
                         <CartItem cartProduct={p}/>
                     ))}
                 </div>
+                <div className="PlaceOrderbutton">Place Order</div>
             </div>
         </>
     )
