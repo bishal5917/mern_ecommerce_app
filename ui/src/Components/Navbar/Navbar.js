@@ -9,19 +9,19 @@ import axios from 'axios'
 
 export default function Navbar() {
 
-    const quantity = useSelector(state => state.cart.quantity)
-
     const [search, setSearch] = useState("")
     const [searchstart, setSearchstart] = useState(false)
-    const [data,setData]=useState([])
+    const [data, setData] = useState([])
 
-   //searching 
-   const searchingItems=async()=>{
-    setSearchstart(true)
-    const response=await axios.get(`/products/search?name=${search}`) 
-    setData(response.data)
-}
-  
+    //searching 
+    const searchingItems = async () => {
+        setSearchstart(true)
+        const response = await axios.get(`/products/search?name=${search}`)
+        setData(response.data)
+    }
+
+    const cartTotal = useSelector(state => state.cart.cartItems.length)
+
     return (
         <>
             <div className="Nav">
@@ -33,18 +33,18 @@ export default function Navbar() {
                 <div className="rightPart">
                     <div className="searchContainer">
                         <input onKeyPress={(e) => e.key === 'Enter' && searchingItems()}
-                        onChange={e => setSearch(e.target.value)}
+                            onChange={e => setSearch(e.target.value)}
                             className="Srch" placeholder="Search For Product" type="search" name="" id="" />
                         <SearchIcon onClick={searchingItems}
-                        style={{ "fontSize": "40" }} className='iconSrch' />
+                            style={{ "fontSize": "40" }} className='iconSrch' />
                     </div>
                 </div>
                 <div className="cartContainer">
-                        <Link className="link" to="/cart">
-                            < ShoppingCartOutlinedIcon style={{ "fontSize": "40"}} />
-                        </Link>
-                        <span className="numsCont">{quantity}</span>
-                    </div>
+                    <Link className="link" to="/cart">
+                        < ShoppingCartOutlinedIcon style={{ "fontSize": "40" }} />
+                    </Link>
+                    <span className="numsCont">{cartTotal}</span>
+                </div>
             </div>
             {searchstart && <Search search={search} responses={data} />}
         </>

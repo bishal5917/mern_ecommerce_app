@@ -1,15 +1,10 @@
 import React from 'react'
 import './cartItem.css'
-import { removeCart } from '../../Redux/ReduxCart'
 import { useDispatch } from 'react-redux'
 
 export default function CartItem({ cartProduct }) {
-    const dispatch=useDispatch()
-    const id=cartProduct._id
-    //removing cart
-    const removeCartHandle = () => {
-        dispatch(removeCart,({id}));
-    }
+    const dispatch = useDispatch()
+
     return (
         <>
             <div className="cartItemCont">
@@ -26,9 +21,9 @@ export default function CartItem({ cartProduct }) {
                     </div>
                     <span className="priceItem">{cartProduct.price}</span>
                     <span className="qty">{cartProduct.quantity}</span>
-                    <span className="total">{cartProduct.total}</span>
+                    <span className="total">{cartProduct.quantity*cartProduct.price}</span>
                 </div>
-                <button onClick={removeCartHandle}>Remove Item</button>
+                <button>Remove Item</button>
             </div>
         </>
     )

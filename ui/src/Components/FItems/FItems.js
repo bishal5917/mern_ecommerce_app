@@ -2,15 +2,18 @@ import React from 'react'
 import './fitems.css'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom'
-import { addProduct } from '../../Redux/ReduxCart'
 import  {useDispatch}  from 'react-redux'
+import { addToCart } from '../../Redux/Actions/cartActions';
 
 export default function FItems({ prods }) {
 
         //add to cart 
         const dispatch = useDispatch();
-        const addToCartHandler = () => {
-            dispatch(addProduct({...prods}));
+
+        const addToCartHandle=()=>{
+            const productId=prods._id
+            const quantity=1
+            dispatch(addToCart(productId,quantity))
         }
 
     return (
@@ -25,9 +28,9 @@ export default function FItems({ prods }) {
                 <span className="price">
                     {prods.price}
                 </span>
-                <button onClick={addToCartHandler} className='cartBtn'>
+                <button className='cartBtn'>
                     <ShoppingCartOutlinedIcon style={{ color: "white" }} />
-                    <span>ADD TO CART</span>
+                    <span onClick={addToCartHandle}>ADD TO CART</span>
                 </button>
 
             </div>

@@ -5,17 +5,20 @@ import { useSelector } from 'react-redux'
 
 export default function Cart() {
     //selecting the cart 
-    const cart = useSelector(state => state.cart)
+    const itemsInCart = useSelector(state => state.cart.cartItems)
+    const totalItems = useSelector(state => state.cart.cartItems.length)
     return (
         <>
             <div className="shoppingCartContainer">
                 <span className="xtopic">Shopping Cart</span>
                 <div className="carts">
-                    {cart.products.map((p) => (
-                        <CartItem cartProduct={p}/>
+                    {itemsInCart.map((p) => (
+                        <CartItem cartProduct={p} />
                     ))}
                 </div>
-                <div className="PlaceOrderbutton">Place Order</div>
+                {totalItems > 0 &&
+                    <div className="PlaceOrderbutton">Place Order</div>
+                }
             </div>
         </>
     )

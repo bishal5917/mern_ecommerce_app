@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './sp.css'
 import { useLocation } from 'react-router'
 import axios from 'axios'
-import { addProduct } from '../../Redux/ReduxCart'
 import  {useDispatch}  from 'react-redux'
+import { addToCart } from '../../Redux/Actions/cartActions'
 
 export default function SingleProduct() {
     const location = useLocation()
@@ -38,7 +38,7 @@ export default function SingleProduct() {
     //add to cart 
     const dispatch = useDispatch();
     const addToCartHandle = () => {
-        dispatch(addProduct({...product,quantity}));
+        dispatch(addToCart(productId,quantity))
     }
     return (
         <>
