@@ -21,11 +21,11 @@ const userSlice = createSlice(
                 state.error = true
             },
             logoutUser: (state) => {
-                state.curruser=null;
+                state.curruser = null;
             },
         }
     }
 )
 
-export const{loginStart,loginSuccess,loginFailure,logoutUser}=userSlice.actions
+export const { loginStart, loginSuccess, loginFailure, logoutUser } = userSlice.actions
 export default userSlice.reducer
