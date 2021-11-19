@@ -24,7 +24,7 @@ export default function FItems({ searched }) {
                     </p>
                 </Link>
                 <span className="price">
-                    {searched.price}
+                    $ {searched.price}
                 </span>
                 <button className='cartBtn'>
                     <ShoppingCartOutlinedIcon style={{ color: "white" }} />

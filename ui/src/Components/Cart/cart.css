@@ -1,12 +1,20 @@
 .shoppingCartContainer{
     padding:2rem;
+    flex:4;
+}
+.orderCont{
+    flex: 1;
+    padding:2rem;
+    display: flex;
+    flex-direction: column;
 }
 .xtopic{
-/* font-weight: 200; */
-font-size: 1.5rem;
+font-weight: 500;
+font-size: 2rem;
 display: flex;
 align-items: center;
 justify-content: center;
+color: rgb(13, 113, 226);
 }
 .carts{
     display: flex;
@@ -26,4 +34,49 @@ hr{
 }
 .PlaceOrderbutton:hover{
     opacity: 70%;
+}
+.mainCont{
+    display: flex;
+}
+.fieldDetails{
+    display: flex;
+    justify-content: space-between;
+}
+.orderCont>*{
+    margin:0.2rem
+}
+.ItemsName{
+    display: flex;
+    flex-direction: column;
+}
+.ItemsValue{
+    display: flex;
+    flex-direction: column;
+}
+.spans{
+    font-size: 1.2rem;
+    font-weight: 200;
+    opacity: 80%;
+}
+.spanTotal{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.ItemsName>*{
+    margin:0.5rem
+}
+.ItemsValue>*{
+    margin:0.5rem
+}
+.checkOutButton{
+    font-size: 1.5rem;
+    background-color: rgb(14, 107, 102);
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+}
+.checkOutButton:hover{
+    opacity: 80%;
 }

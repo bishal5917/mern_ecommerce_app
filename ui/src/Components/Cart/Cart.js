@@ -7,19 +7,43 @@ export default function Cart() {
     //selecting the cart 
     const itemsInCart = useSelector(state => state.cart.cartItems)
     const totalItems = useSelector(state => state.cart.cartItems.length)
+    //total price
+    const totalPrice = itemsInCart.reduce((a, c) => a + c.price * c.quantity, 0)
+    //c goes for every values in that array c=currentItem
+    //and 0 means default value of a=0 
+    const deliveryCharge = 2
     return (
         <>
-            <div className="shoppingCartContainer">
-                <span className="xtopic">Shopping Cart</span>
-                <div className="carts">
-                    {itemsInCart.map((p) => (
-                        <CartItem cartProduct={p} />
-                    ))}
+            <div className='mainCont'>
+                <div className="shoppingCartContainer">
+                    {totalItems === 0 ? (<span className="topic">Your shopping cart is empty</span>) :
+                        <span className="xtopic">Shopping Cart</span>}
+                    <div className="carts">
+                        {itemsInCart.map((p) => (
+                            <CartItem cartProduct={p} />
+                        ))}
+                    </div>
                 </div>
                 {totalItems > 0 &&
-                    <div className="PlaceOrderbutton">Place Order</div>
+                    <div className='orderCont'>
+                        <span className="xtopic">Order Summary</span>
+                        <div className="fieldDetails">
+                            <div className="ItemsName">
+                                <span className="spans">Total</span>
+                                <span className="spans">Delivery Charge</span>
+                                <span className="spanTotal">SubTotal</span>
+                            </div>
+                            <div className="ItemsValue">
+                                <span className="spans">${totalPrice}</span>
+                                <span className="spans">${deliveryCharge}</span>
+                                <span className="spanTotal">${totalPrice + deliveryCharge}</span>
+                            </div>
+                        </div>
+                        <button className="checkOutButton">Checkout</button>
+                    </div>
                 }
             </div>
+
         </>
     )
 }

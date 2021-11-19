@@ -26,15 +26,14 @@ export default function FItems({ prods }) {
                     </p>
                 </Link>
                 <span className="price">
-                    {prods.price}
+                    $ {prods.price}
                 </span>
-                <button className='cartBtn'>
+                <button onClick={addToCartHandle} className='cartBtn'>
                     <ShoppingCartOutlinedIcon style={{ color: "white" }} />
-                    <span onClick={addToCartHandle}>ADD TO CART</span>
+                    <span >ADD TO CART</span>
                 </button>
-
             </div>
 
         </>
-    )
+    ) 
 }
