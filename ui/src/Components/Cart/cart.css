@@ -69,7 +69,8 @@ hr{
     margin:0.5rem
 }
 .checkOutButton{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    padding: 0.5rem 0.5rem;
     background-color: rgb(14, 107, 102);
     border-radius: 3px;
     border: none;

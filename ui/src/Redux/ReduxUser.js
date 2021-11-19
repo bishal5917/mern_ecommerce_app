@@ -4,7 +4,7 @@ const userSlice = createSlice(
     {
         name: "user",
         initialState: {
-            curruser: null,
+            curruser: JSON.parse(localStorage.getItem('user')),
             isFetching: false,
             error: false
         },

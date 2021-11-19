@@ -6,6 +6,7 @@ export const loginUser=async(dispatch,user)=>{
     try {
         const res=await axios.post('/users/login',user)
         dispatch(loginSuccess(res.data))
+        localStorage.setItem("user",JSON.stringify(res.data))
      
     } catch (error) {
         dispatch(loginFailure())
