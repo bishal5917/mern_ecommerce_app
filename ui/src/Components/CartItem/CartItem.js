@@ -28,7 +28,7 @@ export default function CartItem({ cartProduct }) {
                     <span className="qty">{cartProduct.quantity}</span>
                     <span className="total">$ {cartProduct.quantity*cartProduct.price}</span>
                 </div>
-                <button onClick={removeCartHandler}>Remove Item</button>
+                <button className="removeBtn" onClick={removeCartHandler}>Remove Item </button>
             </div>
         </>
     )

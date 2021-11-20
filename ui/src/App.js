@@ -10,6 +10,8 @@ import SellerLog from './Components/SellerSign/SellerLog'
 import UserAc from './Components/UserAc/UserAc'
 import Orders from './Components/Orders/Orders'
 import { useSelector } from 'react-redux'
+import Shipping from './Components/Shipping/Shipping'
+import Order from './Components/PlaceOrder/Order'
 
 import {
   BrowserRouter as Router,
@@ -49,6 +51,12 @@ function App() {
           </Route>
           <Route exact path="/sellerlogin">
             <SellerLog />
+          </Route>
+          <Route exact path='/shippingInfo'>
+            <Shipping />
+          </Route>
+          <Route exact path='/order'>
+            <Order />
           </Route>
           <Route exact path={user && `/user/${user._id}`}>
             <UserAc />

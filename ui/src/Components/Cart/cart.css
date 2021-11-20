@@ -55,7 +55,7 @@ hr{
 }
 .spans{
     font-size: 1.2rem;
-    font-weight: 200;
+    font-weight: 500;
     opacity: 80%;
 }
 .spanTotal{
@@ -76,6 +76,8 @@ hr{
     border: none;
     outline: none;
     cursor: pointer;
+    width: 100%;
+    color: wheat;
 
 }
 .checkOutButton:hover{

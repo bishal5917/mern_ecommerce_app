@@ -11,7 +11,7 @@
     margin:1.3rem;
 }
 .Placed{
-    opacity: 70%;
+    /* opacity: 70%; */
     font-weight: 200;
 }
 .orderId{
@@ -40,15 +40,6 @@ flex:1;
 }
 .item>*{
     margin:0.3rem;
-}
-.cartItemCont>button{
-    width: 10vw;
-    padding: 0.3rem;
-    border:1px solid rgb(182, 170, 170) ;
-    background-color: rgb(20, 17, 22);
-    margin: 0.8rem;
-    cursor: pointer;
-
 }
 .item>span{
     font-weight: 300;

@@ -23,15 +23,18 @@
   font-size: 800;
 }
 .iconSrch{
-  background-color: rgb(12, 56, 77);
+  background-color: rgb(32, 146, 199);
   cursor: pointer;
+  color: white !important;
 }
 .searchContainer{
   display: flex;
   align-items: center;
   border-radius: 5px;
 }
-
+.iconCart{
+  font-weight: 100 !important;
+}
 .Srch {
   width: 60vw;
   height: 70%;
@@ -39,7 +42,7 @@
   outline: none;
   border: none;
   font-size: 1.3rem;
-  background-color: none;
+  background-color: rgb(236, 232, 232);
 
 }
 
@@ -53,4 +56,5 @@
   border-radius: 100%;
   padding:3px 3px;
   font-size: 0.9rem;
+  color: white;
 }

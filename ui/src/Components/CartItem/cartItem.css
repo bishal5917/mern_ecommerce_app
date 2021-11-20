@@ -31,14 +31,14 @@ flex:1;
 .item>*{
     margin:0.3rem;
 }
-.cartItemCont>button{
-    width: 10vw;
-    padding: 0.3rem;
-    border:1px solid rgb(182, 170, 170) ;
-    background-color: rgb(20, 17, 22);
+.removeBtn{
+    width: fit-content;
+    padding: 0.5rem;
     margin: 0.8rem;
     cursor: pointer;
-
+    background-color: rgb(69, 96, 114);
+    border-radius: 5px;
+    border:none;
 }
 .item>span{
     font-weight: 300;

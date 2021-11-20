@@ -2,6 +2,7 @@ import React from 'react'
 import './cart.css'
 import CartItem from '../CartItem/CartItem'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 export default function Cart() {
     //selecting the cart 
@@ -12,6 +13,9 @@ export default function Cart() {
     //c goes for every values in that array c=currentItem
     //and 0 means default value of a=0 
     const deliveryCharge = 2
+
+    //checking for user
+    const user = useSelector(state => state.user.curruser)
     return (
         <>
             <div className='mainCont'>
@@ -39,7 +43,18 @@ export default function Cart() {
                                 <span className="spanTotal">${totalPrice + deliveryCharge}</span>
                             </div>
                         </div>
-                        <button className="checkOutButton">Checkout</button>
+                        {
+                            user ? (<Link className='link' to="/shippinginfo">
+                                <div>
+                                    <button className="checkOutButton">Checkout</button>
+                                </div>
+                            </Link>) : (<Link className='link' to="/login">
+                                <div>
+                                    <button className="checkOutButton">Checkout</button>
+                                </div>
+                            </Link>)
+                        }
+
                     </div>
                 }
             </div>

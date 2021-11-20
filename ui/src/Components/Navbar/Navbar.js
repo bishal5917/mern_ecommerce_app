@@ -41,7 +41,7 @@ export default function Navbar() {
                 </div>
                 <div className="cartContainer">
                     <Link className="link" to="/cart">
-                        < ShoppingCartOutlinedIcon style={{ "fontSize": "40" }} />
+                        < ShoppingCartOutlinedIcon className='iconCart' style={{ "fontSize": "40"}} />
                     </Link>
                     <span className="numsCont">{cartTotal}</span>
                 </div>
