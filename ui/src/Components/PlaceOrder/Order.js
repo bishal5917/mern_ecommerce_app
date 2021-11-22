@@ -15,6 +15,14 @@ const Order = () => {
 
     //checking for user
     const user = useSelector(state => state.user.curruser)
+
+    //getting cart
+    const cart=useSelector(state=>state.cart)
+    
+    const placeOrderHandler=()=>{
+        // dispatch(orderCreateReducer({orderItems:cart.cartItems}))
+        
+    }
     return (
         <>
             <div className='mainCont'>
@@ -60,12 +68,12 @@ const Order = () => {
                             </div>
                         </div>
                         <Link className='link' to=''>
-                            <button className="checkOutButton">Place Order</button>
+                            <button onClick={placeOrderHandler}
+                            className="checkOutButton">Place Order</button>
                         </Link>
                     </div>
                 }
             </div>
-
         </>
     );
 }
