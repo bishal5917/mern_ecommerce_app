@@ -14,6 +14,7 @@ const OrderSchema = new mongoose.Schema({
         postalcode: { type: Number, required: true },
         country: { type: String, required: true }
     },
+    deliveryCharge: { type: Number, required: true },
     totalPrice: { type: Number, required: true },
     isPaid: { type: Boolean, default: false },
     isdelivered: { type: Boolean, default: false }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 import './order.css'
 
 const Order = () => {
@@ -13,15 +14,37 @@ const Order = () => {
     //and 0 means default value of a=0 
     const deliveryCharge = 2
 
+    const finalPrice=totalPrice+deliveryCharge
+
     //checking for user
     const user = useSelector(state => state.user.curruser)
 
     //getting cart
     const cart=useSelector(state=>state.cart)
     
-    const placeOrderHandler=()=>{
+    const placeOrderHandler=async()=>{
         // dispatch(orderCreateReducer({orderItems:cart.cartItems}))
-        
+        //can be done with redux too !!!
+         try {
+             await axios.post('/orders/create',{
+                userId:user._id,
+                orderItems:cart.cartItems,
+                shippingAddress:{
+                    "address":"bourbon Street",
+                    "city":"pokhara",
+                    "postalcode":21,
+                    "country":"nepal"
+                },
+                deliveryCharge,
+                totalPrice
+             },{
+                headers: {
+                    token: `Bearer ${user.token}`
+                }
+             })
+         } catch (error) {
+             console.log(error)
+         }
     }
     return (
         <>
@@ -64,7 +87,7 @@ const Order = () => {
                                 <span className="spans">{totalItems}</span>
                                 <span className="spans">${totalPrice}</span>
                                 <span className="spans">${deliveryCharge}</span>
-                                <span className="spanTotal">${totalPrice + deliveryCharge}</span>
+                                <span className="spanTotal">${finalPrice}</span>
                             </div>
                         </div>
                         <Link className='link' to=''>
