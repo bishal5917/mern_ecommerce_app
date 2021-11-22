@@ -23,7 +23,7 @@ import Navbar from './Components/Navbar/Navbar'
 
 function App() {
   // taking a user
-  const user=useSelector(state=>state.user.curruser)
+  const user = useSelector(state => state.user.curruser)
 
   return (
     <>
@@ -65,7 +65,7 @@ function App() {
             <Orders />
           </Route>
         </Switch>
-        <Footer/>
+        <Footer />
       </Router>
     </>
   );

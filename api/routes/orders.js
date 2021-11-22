@@ -14,9 +14,9 @@ router.post('/create', verifyToken, async (req, res) => {
 })
 
 //get orders
-router.get('/getcarts/:id', async (req, res) => {
+router.get('/getorders/:id', async (req, res) => {
     try {
-        const gotOrders = await Order.findOne({ userId: req.params.id })
+        const gotOrders = await Order.find({ userId: req.params.id })
         res.status(200).json(gotOrders)
     } catch (error) {
         res.status(500).json(error)

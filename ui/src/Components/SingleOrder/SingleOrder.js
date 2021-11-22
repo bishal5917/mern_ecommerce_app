@@ -1,20 +1,20 @@
 import React from 'react'
 import './SO.css'
 
-export default function SingleOrder() {
+export default function SingleOrder({ordered}) {
     return (
         <>
             <div className="cartItemCont">
                 <div className="xtopics">
                     <div className="orderAndId">
                         <span className="order">Order</span>
-                        <span className="orderId">#202670200188400</span>
+                        <span className="orderId">#{ordered._id}</span>
                     </div>
                     <div className="Placed">
-                        Placed on 31 Aug 2021 06:48:03
+                        Placed on {ordered.createdAt.toString()}
                     </div>
                     <div className="statusShow">
-                        Status : Pending
+                        Status : {ordered.isdelivered?`Delivered`:`Pending`}
                     </div>
                 </div>
 
