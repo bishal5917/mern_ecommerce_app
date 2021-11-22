@@ -1,9 +1,12 @@
 .xtopics{
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgb(231, 215, 215);
-    border-top: 1px solid rgb(231, 215, 215);
+    border: 1px solid rgb(129, 124, 124);
     padding: 0.5rem 0.5rem;
+}
+.xtopics:hover{
+    background-color: rgb(212, 225, 236);
+    cursor: pointer;
 }
 .cartItemCont{
     display: flex;
@@ -43,4 +46,7 @@ flex:1;
 }
 .item>span{
     font-weight: 400;
+}
+.orderOptions{
+    display: flex;
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { logoutUser } from '../../Redux/ReduxUser'
 import { useDispatch } from 'react-redux'
+import { emptyTheCart } from '../../Redux/Actions/cartActions'
 import './topbar.css'
 
 export default function Topbar() {
@@ -13,6 +14,7 @@ export default function Topbar() {
 
     const logoutHandle = () => {
         dispatch(logoutUser())
+        dispatch(emptyTheCart())
     }
     return (
         <>
@@ -23,7 +25,7 @@ export default function Topbar() {
 
                 <span className="contents">CUSTOMER CARE</span>
 
-                {user && (<Link className="link" to={user && `/orders${user._id}`}>
+                {user && (<Link className="link" to={user && `/orders/${user._id}`}>
                     <span className="contents">MY ORDERS</span>
                 </Link>)}
                 {!user ? (<Link className="link" to="/signup">

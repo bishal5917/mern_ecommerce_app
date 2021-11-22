@@ -1,11 +1,44 @@
-import React,{useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { saveShippingAddress } from '../../Redux/Actions/cartActions'
+import { useHistory } from 'react-router-dom'
+import './ship.css'
 
 export default function Shipping() {
-    const [address,setAddress]=useState("")
-    const [city,setCity]=useState("")
-    const [code,setCode]=useState("")
-    const [country,setCountry]=useState("")
+    const [country, setCountry] = useState("")
+    const [city, setCity] = useState("")
+    const [province, setProvince] = useState("")
+    const [code, setCode] = useState("")
+    const [street, setStreet] = useState("")
+    const [alert, setAlert] = useState(false)
+
+    // const shippingAddressSave = useSelector(state => state.address.shippingAddress)
+    const nameOfUser = useSelector(state => state.user.curruser.name)
+
+    const addressObject = {
+        name: nameOfUser,
+        country,
+        city,
+        province,
+        code,
+        street
+    }
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const deliveryAddressHandler = () => {
+        if (country && city && province && code && street) {
+            dispatch(saveShippingAddress(addressObject))
+            history.push('/order')
+        }
+        else {
+            setAlert(true)
+            setTimeout(() => {
+                setAlert(false)
+            }, 3000);
+
+        }
+    }
+
     return (
         <div>
             <div className="signupcontainer">
@@ -14,8 +47,13 @@ export default function Shipping() {
                 </div>
                 <div className="inputsCont">
                     <div className="nameCont">
-                        <span className="names">Address</span>
-                        <input value={address} onChange={e => setAddress(e.target.value)}
+                        <span className="names">Country</span>
+                        <input value={country} onChange={e => setCountry(e.target.value)}
+                            type="text" name="" id="" />
+                    </div>
+                    <div className="nameCont">
+                        <span className="names">Province</span>
+                        <input value={province} onChange={e => setProvince(e.target.value)}
                             type="text" name="" id="" />
                     </div>
                     <div className="nameCont">
@@ -24,20 +62,26 @@ export default function Shipping() {
                             type="text" name="" id="" />
                     </div>
                     <div className="nameCont">
-                        <span className="names">Postal Code</span>
+                        <span className="names">Postal/Zip Code</span>
                         <input value={code} onChange={e => setCode(e.target.value)}
                             type="number" name="" id="" />
                     </div>
                     <div className="nameCont">
-                        <span className="names">Country</span>
-                        <input value={country} onChange={e => setCountry(e.target.value)}
+                        <span className="names">Street Address</span>
+                        <input value={street} onChange={e => setStreet(e.target.value)}
                             type="text" name="" id="" />
                     </div>
-                    <Link className='link' to='/order'>
+
+                    {
+                        alert &&
+                        <div className="nameCont">
+                            <span className="showAlert">Please Fill all the details to proceed</span>
+                        </div>
+                    }
+
                     <div className="nameCont">
-                        <button className="formBtn">Proceed</button>
+                        <button onClick={deliveryAddressHandler} className="formBtn">Proceed</button>
                     </div>
-                    </Link>
                 </div>
             </div>
         </div>

@@ -61,7 +61,7 @@ function App() {
           <Route exact path={user && `/user/${user._id}`}>
             <UserAc />
           </Route>
-          <Route exact path={user && `/orders${user._id}`}>
+          <Route exact path={user && `/orders/${user._id}`}>
             <Orders />
           </Route>
         </Switch>

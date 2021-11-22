@@ -1,7 +1,7 @@
-import { CART_ADD_ITEM } from "../Constants/cartConstants";
+import { CART_ADD_ITEM, CART_EMPTY, CART_SHIPPING_ADDRESS } from "../Constants/cartConstants";
 import { CART_REMOVE_ITEM } from "../Constants/cartConstants";
 
-export const cartReducer = (state = { cartItems: [] }, action) => {
+export const cartReducer = (state = { cartItems: [], shippingAddress: {} }, action) => {
     switch (action.type) {
         case CART_ADD_ITEM:
             const item = action.payload
@@ -18,10 +18,18 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
                     //concatinating new item with previous states
                 }
             }
-            case CART_REMOVE_ITEM:
-                  return{
-                      ...state,cartItems:state.cartItems.filter((x)=>x.name!==action.payload)
-                  }  
+        case CART_REMOVE_ITEM:
+            return {
+                ...state, cartItems: state.cartItems.filter((x) => x.name !== action.payload)
+            }
+        case CART_SHIPPING_ADDRESS:
+            return {
+                ...state, shippingAddress: action.payload
+            }
+        case CART_EMPTY:
+            return {
+                ...state, cartItems: [],shippingAddress:{}
+            }
 
         default:
             return state

@@ -14,37 +14,43 @@ const Order = () => {
     //and 0 means default value of a=0 
     const deliveryCharge = 2
 
-    const finalPrice=totalPrice+deliveryCharge
+    const finalPrice = totalPrice + deliveryCharge
 
     //checking for user
     const user = useSelector(state => state.user.curruser)
 
     //getting cart
-    const cart=useSelector(state=>state.cart)
-    
-    const placeOrderHandler=async()=>{
+    const cart = useSelector(state => state.cart)
+
+    //getting shippingAddress
+    const address = useSelector(state => state.cart.shippingAddress)
+    console.log(address.name, address.city)
+
+    const placeOrderHandler = async () => {
         // dispatch(orderCreateReducer({orderItems:cart.cartItems}))
         //can be done with redux too !!!
-         try {
-             await axios.post('/orders/create',{
-                userId:user._id,
-                orderItems:cart.cartItems,
-                shippingAddress:{
-                    "address":"bourbon Street",
-                    "city":"pokhara",
-                    "postalcode":21,
-                    "country":"nepal"
+        try {
+            await axios.post('/orders/create', {
+                userId: user._id,
+                orderItems: cart.cartItems,
+                shippingAddress: {
+                    "name": address.name,
+                    "country": address.country,
+                    "city": address.city,
+                    "province": address.province,
+                    "code": address.code,
+                    "street": address.street
                 },
                 deliveryCharge,
                 totalPrice
-             },{
+            }, {
                 headers: {
                     token: `Bearer ${user.token}`
                 }
-             })
-         } catch (error) {
-             console.log(error)
-         }
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
     return (
         <>
@@ -59,7 +65,9 @@ const Order = () => {
                             </div>
                             <div className="namePart">
                                 <span className="spanTitle">Address : </span>
-                                <span className="spans">Nepal</span>
+                                <span className="spans">
+                                    {address.country},{address.city},{address.province},{address.code},{address.street}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -90,9 +98,9 @@ const Order = () => {
                                 <span className="spanTotal">${finalPrice}</span>
                             </div>
                         </div>
-                        <Link className='link' to=''>
+                        <Link className='link' to={`/orders/${user._id}`}>
                             <button onClick={placeOrderHandler}
-                            className="checkOutButton">Place Order</button>
+                                className="checkOutButton">Place Order</button>
                         </Link>
                     </div>
                 }
