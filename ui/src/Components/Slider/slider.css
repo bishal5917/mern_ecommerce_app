@@ -22,16 +22,3 @@
   padding: 0.8rem 0.3rem;
   border-radius: 10px;
 }
-.sliderImgs {
-  display: flex;
-}
-.Transform {
-  display: flex;
-  transform: translateX();
-}
-.left:hover {
-  opacity: 90%;
-}
-.right:hover {
-  opacity: 90%;
-}
