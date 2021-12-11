@@ -1,18 +1,37 @@
 .sliderImage {
-  height: 50vh;
-  width: 100%;
+  height: 50%;
+  width: 100vw;
   object-fit: cover;
 }
 .sliderImages {
   position: relative;
-
+  overflow-x: hidden;
 }
 .left {
   position: absolute;
   top: 10rem;
+  background-color: aliceblue;
+  padding: 0.8rem 0.3rem;
+  border-radius: 10px;
 }
 .right {
   position: absolute;
   top: 10rem;
-  left:95vw;
+  left: 95vw;
+  background-color: aliceblue;
+  padding: 0.8rem 0.3rem;
+  border-radius: 10px;
+}
+.sliderImgs {
+  display: flex;
+}
+.Transform {
+  display: flex;
+  transform: translateX();
+}
+.left:hover {
+  opacity: 90%;
+}
+.right:hover {
+  opacity: 90%;
 }
