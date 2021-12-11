@@ -7,8 +7,7 @@ import styled from 'styled-components'
 const SliderDiv = styled.div`
 
 display: flex;
-transition:0.2s ease-out;
-overflow-x:hidden;
+transition:0.5s ease-in-out;
 transform:translateX(${props => props.slideby * -100}vw)
 
 `
