@@ -16,9 +16,10 @@ router.post('/createreview', async (req, res) => {
 //get all reviews of a product
 router.get('/getrvs/:pid', async (req, res) => {
     try {
-        
+        const foundrevs = await Review.find({ productId: req.params.pid })
+        res.status(200).send(foundrevs)
     } catch (error) {
-        
+        res.status(500).json(error)
     }
 })
 
