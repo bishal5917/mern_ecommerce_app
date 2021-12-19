@@ -2,30 +2,31 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const sellerSlice = createSlice(
     {
-        name: "user",
+        name: "seller",
         initialState: {
-            currseller: null,
+            currseller: JSON.parse(localStorage.getItem('seller')),
             isFetching: false,
             error: false
         },
         reducers: {
-            loginStart: (state) => {
+            sellerloginStart: (state) => {
                 state.isFetching = true;
             },
-            loginSuccess: (state, action) => {
+            sellerloginSuccess: (state, action) => {
                 state.isFetching = false;
                 state.curruser = action.payload
             },
-            loginFailure: (state) => {
+            sellerloginFailure: (state) => {
                 state.isFetching = false;
                 state.error = true
             },
-            logoutUser: (state) => {
-                state.curruser=null;
+            logoutSeller: (state) => {
+                state.curruser = null;
+                localStorage.removeItem('seller')
             },
         }
     }
 )
 
-export const{loginStart,loginSuccess,loginFailure,logoutUser}=sellerSlice.actions
+export const { sellerloginStart, sellerloginSuccess, sellerloginFailure} = sellerSlice.actions
 export default sellerSlice.reducer
