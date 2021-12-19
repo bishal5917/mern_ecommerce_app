@@ -51,7 +51,7 @@ export default function SingleProduct() {
                         {product.name}
                     </p>
                     <span className="price">
-                        {product.price}
+                        ${product.price}
                     </span>
                     <button onClick={addToCartHandle} className='cartBtn'>
                         <span >ADD TO CART</span>
