@@ -9,7 +9,7 @@ import './topbar.css'
 export default function Topbar() {
     //taking a user
     const user = useSelector(state => state.user.curruser)
-
+    
     const dispatch = useDispatch()
 
     const logoutHandle = () => {

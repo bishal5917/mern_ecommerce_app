@@ -14,7 +14,7 @@ export default function SellerLog() {
     const handleLoginSeller = () => {
         try {
             loginSeller(dispatch, { name, password })
-            history.push('/')
+            history.push('/seller')
         } catch (error) {
             console.log(error)
         }

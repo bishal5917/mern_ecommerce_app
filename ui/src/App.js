@@ -20,6 +20,7 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Navbar from './Components/Navbar/Navbar'
+import SellerPage from './Components/SellerPage/SellerPage'
 
 function App() {
   // taking a user
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          <Route exact path="/seller">
+            <SellerPage />
           </Route>
           <Route exact path="/sellersign">
             <SellerSign />
