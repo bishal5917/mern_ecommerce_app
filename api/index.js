@@ -46,6 +46,7 @@ const sellerroute=require('./routes/sellers')
 const productroute=require('./routes/products')
 const cartroute=require('./routes/carts')
 const orderroute=require('./routes/orders')
+const reviewroute=require('./routes/reviews')
 
 
 //routes for router
@@ -54,6 +55,7 @@ app.use('/api/sellers', sellerroute)
 app.use('/api/products', productroute)
 app.use('/api/carts', cartroute)
 app.use('/api/orders', orderroute)
+app.use('/api/reviews', reviewroute)
 
 
 app.listen('5000',()=>{
