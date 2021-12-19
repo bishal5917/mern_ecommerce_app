@@ -42,12 +42,12 @@ router.get('/getprods/:id', async (req, res) => {
 //searching a product
 router.get('/search', async (req, res) => {
     let searchTerm = req.query.name
-    let eachTerm=searchTerm.split(" ")
-    for (var i in eachTerm){
-        eachTermBySpace=eachTerm[i] 
+    let eachTerm = searchTerm.split(" ")
+    for (var i in eachTerm) {
+        eachTermBySpace = eachTerm[i]
     }
     try {
-        let searchFound=await Product.find({name:{$regex:eachTermBySpace,$options:'i'}})
+        let searchFound = await Product.find({ name: { $regex: eachTermBySpace, $options: 'i' } })
         res.status(200).json(searchFound)
     } catch (error) {
         res.status(500).json(error)
