@@ -4,6 +4,7 @@ import { useLocation } from 'react-router'
 import axios from 'axios'
 import  {useDispatch}  from 'react-redux'
 import { addToCart } from '../../Redux/Actions/cartActions'
+import Reviews from '../Reviews/Reviews'
 
 export default function SingleProduct() {
     const location = useLocation()
@@ -116,6 +117,7 @@ export default function SingleProduct() {
                     </div>
                 </div>
             </div>
+            <Reviews />
         </>
     )
 }
